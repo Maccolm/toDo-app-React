@@ -1,5 +1,11 @@
+import Item from "./Item"
+
 const Home = () =>{
-	return <div>Todo App</div>
+	return (
+	<div>
+		<Item/>	
+	</div>
+	)
 }
 
 export default Home
