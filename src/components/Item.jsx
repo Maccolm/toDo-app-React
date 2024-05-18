@@ -1,19 +1,18 @@
 import { useState } from "react";
 import { Card, CardHeader, CardBody, CardFooter, Divider, Link } from "@nextui-org/react";
 
-const Item = () =>{
-	const [title, setTitle] = useState("Title");
-	const [task, setTask] = useState("Task to do");
+const Item = ({ todo }) =>{
+	
 	return (
-		<Card className="max-w-[400px]">
+		<Card className="max-w-[400px] todo-card">
 			<CardHeader>
 				<div className="flex flex-col">
-					<p className="font-bold text-large">{title}</p>
+					<p className="font-bold text-large">{todo.title}</p>
 				</div>
 			</CardHeader>
 			<Divider />
 				<CardBody>
-					<p className="text-small">{task}</p>
+					<p className="text-small">{todo.task}</p>
 				</CardBody>
 		</Card>
 	)

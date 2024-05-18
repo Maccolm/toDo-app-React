@@ -15,3 +15,11 @@ main{
 	max-width: 1280px;
 	margin: 0 auto;
 }
+.todo-list{
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+.todo-card{
+	
+}
