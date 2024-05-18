@@ -1,5 +1,5 @@
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import Home from './components/Home'
 import { NextUIProvider } from "@nextui-org/react";
@@ -12,6 +12,7 @@ function App() {
 	const toggleDarkMode = () =>{
 		setDarkMode((prevDarkMode) => !prevDarkMode)
 	}
+
 
   return (
 	<NextUIProvider>

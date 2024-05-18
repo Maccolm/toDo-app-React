@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 main{
-	height: 100vh;
+	height: 100%;
 	padding: 2em;
 }
 .switch-btn{
@@ -18,8 +18,20 @@ main{
 .todo-list{
 	display: flex;
 	flex-direction: column;
-	gap: 20px;
+	gap: 2rem;
 }
 .todo-card{
-	
+	transition: all 0.3s ease-out;
+}
+.todo-card__container{
+	border-radius: 30px;
+}
+.todo-card__title{
+	padding: 12px 12px 5px 17px;
+	font-size: 23px;
+	letter-spacing: 1px;
+}
+.todo-card__task{
+	padding: 5px 12px 17px 17px;
+	letter-spacing: 0.3px;
 }
