@@ -24,7 +24,6 @@ const checkbox = tv({
 
 
 const Checkbox = ({ label, value, onChange }) => {
-	const [checked, seChecked] = useState(value)
 
 	const {
 		children,
@@ -37,7 +36,9 @@ const Checkbox = ({ label, value, onChange }) => {
 		defaultSelected: value,
 	})
 
-	const styles = checkbox({ isSelected, isFocusVisible })
+	const styles = checkbox({ 
+		isSelected: value, 
+		isFocusVisible: false })
 
 	return (
 		<label {...getBaseProps()} className="checkbox-label">
@@ -45,6 +46,7 @@ const Checkbox = ({ label, value, onChange }) => {
 				<input {...getInputProps()} checked={value} onChange={onChange}/>
 			</VisuallyHidden>
 			<Chip
+			key={value}
 				classNames={{
 					base: styles.base(),
 					content: styles.content(),

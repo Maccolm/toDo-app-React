@@ -7,13 +7,12 @@ import Checkbox from './Checkbox';
 const Item = ({ todo }) =>{
 
 	const [done, setDone] = useState(todo.done)
-
 	const handleChange = (e) =>{
 		setDone(e.target.checked)
 	}
 
 	return (
-		<CardItem>
+		<CardItem >
 			<Card className="max-w-[400px] todo-card__container">
 				<CardHeader className='flex space-x-1'>
 					<div className="todo-card__title grow text-left">
