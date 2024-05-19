@@ -18,7 +18,7 @@ const todoData = [
 		title: "SFI",
 		task: "Go to SFI class and study Swedish",
 		day: "Monday",
-		done: false	
+		done: true	
 	},
 	{
 		id: 4,

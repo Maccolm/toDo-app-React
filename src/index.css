@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 main{
+	min-height: 100vh;
 	height: 100%;
 	padding: 2em;
 }
@@ -32,6 +33,21 @@ main{
 	letter-spacing: 1px;
 }
 .todo-card__task{
-	padding: 5px 12px 17px 17px;
+	padding: 5px 12px 0px 17px;
 	letter-spacing: 0.3px;
+}
+.btns{
+	padding-right: 15px;
+	font-size: 22px;
+}
+.calender{
+	padding: 0 0 0px 12px;
+}
+.calender__icon{
+	font-size: 1.3em;
+	margin-right: 5px;
+}
+.checkbox-label{
+	padding-right: 17px;
+	cursor: pointer;
 }

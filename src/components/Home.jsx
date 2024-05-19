@@ -7,7 +7,7 @@ const Home = () =>{
 
 	return (
 	<div>
-		<List todo={todo}/>	
+		<List todo={todo} setTodo={setTodo}/>	
 	</div>
 	)
 }
