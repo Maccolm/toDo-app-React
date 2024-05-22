@@ -5,8 +5,7 @@ import PropTypes from 'prop-types';
 	// `}>{children}</div>
 const CardItem = ({ children, reverse }) =>{
 	return(
-		<div className={`todo-card 
-		`}>{children}</div>
+		<div className={`todo-card`}>{children}</div>
 	)
 }
 

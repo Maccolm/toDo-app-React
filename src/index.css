@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+h1{
+	font-size: 25px;
+}
 main{
 	min-height: 100vh;
 	height: 100%;
@@ -15,17 +18,26 @@ main{
 .container{
 	max-width: 1280px;
 	margin: 0 auto;
-}
-.todo-list{
+	padding: 55px 0;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
+}
+.todo-list{
+	padding-top: 35px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	gap: 2rem;
 }
 .todo-card{
 	transition: all 0.3s ease-out;
+	width: 100%;
+	min-width: 280px;
+	max-width: 400px;
 }
 .todo-card__container{
-	border-radius: 30px;
+	/* border-radius: 30px; */
 }
 .todo-card__title{
 	padding: 12px 12px 5px 17px;
@@ -50,4 +62,49 @@ main{
 .checkbox-label{
 	padding-right: 17px;
 	cursor: pointer;
+}
+@media (min-width: 895px ) {
+	.todo-list{
+		flex: 1 0 400px;
+		flex-direction: row;
+		flex-wrap: wrap;
+		/* justify-content: center; */
+	}
+}
+@media (min-width: 906px ) {
+	.container{
+		align-items: start;
+		padding-top: 15px;
+	}
+}
+label{
+	font-size: 20px;
+	display: block;
+	margin: 5px 0;
+	text-align: left;
+}
+.form-card{
+	padding: 0;
+	text-align: left;
+}
+.input-container{
+	position: relative;
+
+}
+input{
+	width: 100%;
+	background-color: transparent;
+	transition: background-color 0.3s ease-out;
+}
+input:hover{
+	background-color: #ffffff09;
+}
+.input-container::after{
+	position: absolute;
+	content: '';
+	width: 100%;
+	height: 1px;
+	background-color: #fff;
+	bottom: 0;
+	left: 0;
 }

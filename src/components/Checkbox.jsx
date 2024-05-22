@@ -51,8 +51,9 @@ const Checkbox = ({ label, value, onChange }) => {
 					base: styles.base(),
 					content: styles.content(),
 				}}
+				className="h-9 rounded-lg"
 				color="default"
-				radius="large"
+				radius="small"
 				startContent={value ? <CheckIcon className='ml-1'/> : null}
 				variant = "faded"
 				{...getLabelProps}

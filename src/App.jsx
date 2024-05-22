@@ -17,12 +17,10 @@ function App() {
   return (
 	<NextUIProvider>
 		<main className={`${darkMode ? 'dark' : ''} text-foreground bg-background`}>
-			<div className="container">
 				  <div className='switch-btn'>
 						<DarkModeToggle darkMode={darkMode} toggleDarkMode={toggleDarkMode}/>
-			   </div>
+				 </div>
 				<Home/>
-			</div>
 		</main>
 	</NextUIProvider>
   )
