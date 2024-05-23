@@ -13,7 +13,7 @@ const Item = ({ todo }) =>{
 
 	return (
 		<CardItem >
-			<Card className="max-w-[400px] todo-card__container">
+			<Card  className="max-w-[400px] todo-card__container">
 				<CardHeader className='flex space-x-1'>
 					<div className="todo-card__title grow text-left">
 						<p className="font-bold ">{todo.title}</p>

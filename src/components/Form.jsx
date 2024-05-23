@@ -4,10 +4,10 @@ import CardItem from "./Card"
 import Button from "./Button"
 import { Divider } from "@nextui-org/react"
 
-const Form = () => {
+const Form = (create) => {
 	return (
 		<CardItem>
-			<Card className="max-w-[400px] w-[100%] form-card ">
+			<Card className="max-w-[400px] w-[100%] form-card">
 				<CardHeader className="p-0 block">
 					<form className="">
 						<h1 className="todo-card__title mb-3 ml-2">Add a new Todo</h1>
@@ -16,7 +16,7 @@ const Form = () => {
 							<label  htmlFor='title'>
 								<p>Title</p>
 							</label>
-							<div className="input-container ">
+							<div className="input-container mr-3 ml-3">
 								<input type="text" id="title" />
 							</div>
 						</div>
@@ -24,7 +24,7 @@ const Form = () => {
 							<label htmlFor='text'>
 								<p>Text</p>
 							</label>
-							<div className="input-container ">
+							<div className="input-container mr-3 ml-3">
 								<input type="text" id="text" />
 							</div>
 						</div>
