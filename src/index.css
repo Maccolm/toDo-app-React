@@ -4,6 +4,7 @@
 
 h1{
 	font-size: 25px;
+	font-weight: 700;
 }
 main{
 	min-height: 100vh;
@@ -78,9 +79,10 @@ main{
 	}
 }
 label{
+	margin: 5px 0;
+	padding-left: 12px;
 	font-size: 20px;
 	display: block;
-	margin: 5px 0;
 	text-align: left;
 }
 .form-card{
@@ -107,4 +109,15 @@ input:hover{
 	background-color: #fff;
 	bottom: 0;
 	left: 0;
+}
+.btn{
+	padding-right: 12px;
+	background-color: #17c664;
+	transition: all ease-out 0.3s;
+}
+.btn:hover{
+	background-color: #179a50;
+}
+.btn:active{
+	background-color: #127b3f;
 }
