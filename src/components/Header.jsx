@@ -1,6 +1,6 @@
 
-export default function Header(){
+export default function Header({ darkMode }){
 	return (
-		<div>Header</div>
+		<div className={`header ${darkMode ? 'header-dark' : 'header-light'}`} ><p>Todo app</p></div>
 	)
 }

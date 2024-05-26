@@ -11,9 +11,26 @@ main{
 	height: 100%;
 	padding: 2em;
 }
+
+/* ============================================================= */
+.header{
+	padding: 20px 0;
+	color: rgb(248, 103, 66);
+	font-size: 26px;
+	letter-spacing: 1.5px;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+.header.header-dark{
+	background-color: #212121;
+}
+.header.header-light{
+	background-color: #d3d3d3;
+}
+/* =================================================================== */
 .switch-btn{
 	position: absolute;
-	top: 28px;
+	top: 23px;
 	right: 28px;
 }
 .container{
@@ -48,10 +65,6 @@ main{
 .todo-card__task{
 	padding: 5px 12px 0px 17px;
 	letter-spacing: 0.3px;
-}
-.btns{
-	padding-right: 15px;
-	font-size: 22px;
 }
 .calender{
 	padding: 0 0 0px 12px;
@@ -112,6 +125,17 @@ input:hover{
 	bottom: 0;
 	left: 0;
 }
+/* btns=================================================================== */
+.btns {
+	padding-right: 15px;
+	font-size: 22px;
+}
+.btns:hover{
+	cursor: pointer;
+}
+.edit-btn:hover{
+	fill: #f9d579
+}
 .btn{
 	padding-right: 12px;
 	background-color: #17c664;
@@ -123,3 +147,4 @@ input:hover{
 .btn:active{
 	background-color: #127b3f;
 }
+/* =================================================================== */

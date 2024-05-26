@@ -8,7 +8,7 @@ const Button = ({ children, type ='button', isDisabled = false}) =>{
 	</button>
 }
 
-Button.PropTypes = {
+Button.propTypes = {
 	children: PropTypes.node.isRequired,
 	type: PropTypes.string,
 	isDisabled: PropTypes.bool,

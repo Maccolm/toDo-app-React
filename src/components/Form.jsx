@@ -7,10 +7,10 @@ import { Divider } from "@nextui-org/react"
 const Form = (create) => {
 	return (
 		<CardItem>
-			<Card className="max-w-[400px] w-[100%] form-card">
+			<Card className="max-w-[400px] w-[100%] form-card mb-3">
 				<CardHeader className="p-0 block">
 					<form className="">
-						<h1 className="todo-card__title mb-3 ml-2">Add a new Todo</h1>
+						<h1 className="todo-card__title mb-3 ml-2 mt-3">Add a new ToDo</h1>
 						<Divider className="p-0"/>
 						<div className="p-3 label-container">
 							<label  htmlFor='title'>
@@ -45,7 +45,7 @@ const Form = (create) => {
 								</select>
 							</div>
 							<div className="btn-container m-3 pt-3">
-								<Button type="submit"><p>Add New Task</p></Button>
+								<Button type="submit"><p>Add New ToDo</p></Button>
 							</div>
 						</div>
 					</form>

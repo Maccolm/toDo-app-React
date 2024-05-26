@@ -19,8 +19,8 @@ const Item = ({ todo }) =>{
 						<p className="font-bold ">{todo.title}</p>
 					</div>
 					<div className="btns flex">
-						<MdEdit style={{color: '#f7cd62', marginRight: '0.5rem'}}/>
-						<MdDeleteForever style = {{color: "#ff5c45"}}/>
+						<MdEdit className='edit-btn' style={{color: '#f7cd62', marginRight: '0.5rem'}} onClick={() => handleEdit(todo)}/>
+						<MdDeleteForever style = {{color: "#ff5c45"}} onClick={() => handleDelete(todo.id)}/>
 					</div>
 				</CardHeader>
 				<Divider />
