@@ -4,7 +4,7 @@ import { Card, CardHeader, CardBody, CardFooter, Divider, Link } from "@nextui-o
 import CardItem from "./Card";
 import Checkbox from './Checkbox';
 
-const Item = ({ todo }) =>{
+const Item = ({ todo, handleEdit, handleDelete }) =>{
 
 	const [done, setDone] = useState(todo.done)
 	const handleChange = (e) =>{

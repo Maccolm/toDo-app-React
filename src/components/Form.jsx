@@ -4,12 +4,31 @@ import CardItem from "./Card"
 import Button from "./Button"
 import { Divider } from "@nextui-org/react"
 
-const Form = (create) => {
+const Form = ({ addTodo }) => {
+	const [title, setTitle] = useState("")
+	const [task, settask] = useState("")
+	const [day, setDay] = useState("")
+
+	const handleSubmit = (e) =>{
+		e.preventDefault()
+	
+		const newTodo = {
+			title,
+			task,
+			day,
+		}
+		addTodo(newTodo)
+			console.log(newTodo);
+			setTitle("")
+			settask("")
+			setDay("")
+		
+	}
 	return (
 		<CardItem>
 			<Card className="max-w-[400px] w-[100%] form-card mb-3">
 				<CardHeader className="p-0 block">
-					<form className="">
+					<form onSubmit={handleSubmit}>
 						<h1 className="todo-card__title mb-3 ml-2 mt-3">Add a new ToDo</h1>
 						<Divider className="p-0"/>
 						<div className="p-3 label-container">
@@ -17,7 +36,7 @@ const Form = (create) => {
 								<p>Title</p>
 							</label>
 							<div className="input-container mr-3 ml-3">
-								<input type="text" id="title" />
+								<input value={title} type="text" id="title" onChange={(e) => setTitle(e.target.value)}/>
 							</div>
 						</div>
 						<div className="p-3 pt-0 label-container">
@@ -25,7 +44,7 @@ const Form = (create) => {
 								<p>Text</p>
 							</label>
 							<div className="input-container mr-3 ml-3">
-								<input type="text" id="text" />
+								<input value={task} type="text" id="text" onChange={(e) => settask(e.target.value)}/>
 							</div>
 						</div>
 						<div className="p-3 pt-0 label-container">
@@ -33,7 +52,7 @@ const Form = (create) => {
 								<p>Day</p>
 							</label>
 							<div className="option-container ml-3 mb-3">
-								<select className="w-[100%] p-1 pl-0">
+								<select value={day} className="w-[100%] p-1 pl-0" onChange={(e) => setDay(e.target.value)}>
 									<option value="" disabled={true}>Select day</option>
 									<option value="Monday">Monday</option>
 									<option value="Tuesday">Tuesday</option>
