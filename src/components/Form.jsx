@@ -6,7 +6,7 @@ import { Divider } from "@nextui-org/react"
 
 const Form = ({ addTodo }) => {
 	const [title, setTitle] = useState("")
-	const [task, settask] = useState("")
+	const [task, setTask] = useState("")
 	const [day, setDay] = useState("")
 
 	const handleSubmit = (e) =>{
@@ -20,7 +20,7 @@ const Form = ({ addTodo }) => {
 		addTodo(newTodo)
 			console.log(newTodo);
 			setTitle("")
-			settask("")
+			setTask("")
 			setDay("")
 		
 	}
@@ -31,26 +31,17 @@ const Form = ({ addTodo }) => {
 					<form onSubmit={handleSubmit}>
 						<h1 className="todo-card__title mb-3 ml-2 mt-3">Add a new ToDo</h1>
 						<Divider className="p-0"/>
-						<div className="p-3 label-container">
-							<label  htmlFor='title'>
-								<p>Title</p>
-							</label>
+						<div className="p-3 mb-3 label-container">
 							<div className="input-container mr-3 ml-3">
-								<input value={title} type="text" id="title" onChange={(e) => setTitle(e.target.value)}/>
+								<input value={title} type="text" id="title" placeholder="Title" onChange={(e) => setTitle(e.target.value)}/>
+							</div>
+						</div>
+						<div className="p-3 pt-0  mb-3 label-container">
+							<div className="input-container mr-3 ml-3">
+								<input value={task} type="text" id="text" placeholder="Text" onChange={(e) => setTask(e.target.value)}/>
 							</div>
 						</div>
 						<div className="p-3 pt-0 label-container">
-							<label htmlFor='text'>
-								<p>Text</p>
-							</label>
-							<div className="input-container mr-3 ml-3">
-								<input value={task} type="text" id="text" onChange={(e) => settask(e.target.value)}/>
-							</div>
-						</div>
-						<div className="p-3 pt-0 label-container">
-							<label  htmlFor='day'>
-								<p>Day</p>
-							</label>
 							<div className="option-container ml-3 mb-3">
 								<select value={day} className="w-[100%] p-1 pl-0" onChange={(e) => setDay(e.target.value)}>
 									<option value="" disabled={true}>Select day</option>

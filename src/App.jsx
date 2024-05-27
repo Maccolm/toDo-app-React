@@ -7,6 +7,7 @@ import DarkModeToggle from './components/darkModeToggle';
 import Header from './components/Header';
 import Login from './components/Login';
 import Register from './components/Register';
+import ModalWindow from './components/ModalWindow';
 
 
 function App() {
@@ -26,11 +27,11 @@ function App() {
 							<DarkModeToggle darkMode={darkMode} toggleDarkMode={toggleDarkMode}/>
 					</div>
 					<Routes>
-						<Route path='/' element={<Home/>}/>
+						<Route path='/' element={<Home darkMode={darkMode}/>}/>
 						<Route path='/register' element={<Register/>} />
 						<Route path='/login' element={<Login/>} />
 					</Routes>
-			</main>
+			</main>	
 		</NextUIProvider>
 	</BrowserRouter>
   )
