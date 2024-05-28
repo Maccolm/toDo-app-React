@@ -1,7 +1,7 @@
 import {v4 as uuidv4} from 'uuid'
 import List from "./List";
 import todoData from "../data/Todo";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Form from "./Form";
 import Item from './Item';
 import ModalWindow from './ModalWindow';
@@ -9,7 +9,21 @@ import { useDisclosure } from '@nextui-org/react';
 
 
 const Home = ({ darkMode }) =>{
-	const [todo, setTodo] = useState(todoData)
+	const [todo, setTodo] = useState([])
+
+	useEffect(() =>{
+		fetchTodos()
+	}, [])
+
+	const fetchTodos = async () =>{
+		const response = await fetch("/api/todos")
+		const data = await response.json()
+
+		setTodo(data)
+	}
+
+
+
 	const { isOpen, onOpen, onClose } = useDisclosure();
     const [deleteId, setDeleteId] = useState(null);
 

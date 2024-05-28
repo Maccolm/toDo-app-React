@@ -3,16 +3,21 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "proxy": "http://localhost:6001",
   "scripts": {
-    "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+	 "server": "json-server --watch db.json --port 6001",
+	 "start": "vite",
+	 "dev": "concurrently \"npm run server\" \"npm start\""
   },
   "dependencies": {
     "@nextui-org/card": "^2.0.28",
     "@nextui-org/react": "^2.3.6",
+    "concurrently": "^8.2.2",
     "framer-motion": "^11.1.9",
+    "json-server": "^1.0.0-beta.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.2.1",
