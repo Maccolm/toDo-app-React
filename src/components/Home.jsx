@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Form from "./Form";
 import Item from './Item';
 import ModalWindow from './ModalWindow';
+import EditModal from './EditModal';
 import { useDisclosure } from '@nextui-org/react';
 
 
@@ -23,9 +24,11 @@ const Home = ({ darkMode }) =>{
 	}
 
 
-
-	const { isOpen, onOpen, onClose } = useDisclosure();
-    const [deleteId, setDeleteId] = useState(null);
+	const { isOpen: isDeleteOpen, onOpen: onDeleteOpen, onClose: onDeleteClose } = useDisclosure();
+	const { isOpen: isEditOpen, onOpen: onEditOpen, onClose: onEditClose } = useDisclosure();
+   
+	const [deleteId, setDeleteId] = useState(null);
+	const [editTodo, setEditTodo] = useState(null) 
 
 	const addTodo = (newTodo) =>{
 		newTodo.id = uuidv4()
@@ -33,20 +36,32 @@ const Home = ({ darkMode }) =>{
 	}
 	const deleteTodo = (id) => {
 		setDeleteId(id)
-		onOpen()
+		onDeleteOpen()
 	}
-	 const onDelete = () =>{
-			 setTodo(todo.filter((item) => item.id !== deleteId ))
-			 setDeleteId(null)
-			 onClose()
+	const onDelete = () =>{
+		setTodo(todo.filter((item) => item.id !== deleteId ))
+		setDeleteId(null)
+		onDeleteClose()
 	 }
-	
+
+	 const handleEdit = (todo) => {
+		setEditTodo(todo)
+		onEditOpen()
+	 }
+
+	 const updateTodo = (updatedTodo) => {
+		setTodo(todo.map((todo) => (todo.id ===updatedTodo.id ? updatedTodo : todo)))
+		onEditClose()
+	 }	
 	return (
 		<div className="container">
 			<Form addTodo={addTodo}/>
-			<List todo={todo} setTodo={setTodo} handleDelete={deleteTodo}/>
-			{isOpen && (
-				<ModalWindow darkMode={darkMode} isOpen={isOpen} onClose={onClose} onDelete={onDelete}/>
+			<List todo={todo} setTodo={setTodo} handleDelete={deleteTodo} handleEdit={handleEdit}/>
+			{isDeleteOpen && (
+				<ModalWindow darkMode={darkMode} isOpen={isDeleteOpen} onClose={onDeleteClose} onDelete={onDelete}/>
+			)}
+			{isEditOpen && (
+				<EditModal darkMode={darkMode} isOpen={isEditOpen} onClose={onEditClose} todo={editTodo} updateTodo={updateTodo}/>
 			)}
 		</div>
 	)
