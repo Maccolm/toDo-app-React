@@ -8,6 +8,7 @@ const Form = ({ addTodo }) => {
 	const [title, setTitle] = useState("")
 	const [task, setTask] = useState("")
 	const [day, setDay] = useState("")
+	const [done, setDone] = useState(false)
 
 	const handleSubmit = (e) =>{
 		e.preventDefault()
@@ -16,13 +17,13 @@ const Form = ({ addTodo }) => {
 			title,
 			task,
 			day,
+			done
 		}
 		addTodo(newTodo)
 			console.log(newTodo);
 			setTitle("")
 			setTask("")
 			setDay("")
-		
 	}
 	return (
 		<CardItem>

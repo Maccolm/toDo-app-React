@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Modal, ModalContent, ModalHeader, ModalFooter, Button, ModalBody, Input } from '@nextui-org/react';
+import { useTheme } from './ThemeContext';
 
-const EditModal = ({ isOpen, onClose, todo, updateTodo, darkMode }) => {
+const EditModal = ({ isOpen, onClose, todo, updateTodo }) => {
 	const [theme, setTheme] = useState('')
 	
 	const [title, setTitle] = useState(todo?.title || '')
@@ -25,6 +26,7 @@ const handleSubmit = () => {
 	})
 }
 
+const { darkMode } = useTheme()
 useEffect(()=>{
 	setTheme(darkMode ?  'dark text-foreground' : '');
 	}, [darkMode])

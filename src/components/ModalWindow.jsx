@@ -1,9 +1,11 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Modal, ModalContent, ModalHeader, ModalFooter, Button, ModalBody } from "@nextui-org/react";
+import { useTheme } from "./ThemeContext";
 
-export default function ModalWindow({ isOpen, onClose, onDelete, darkMode }){
+export default function ModalWindow({ isOpen, onClose, onDelete }){
 	const [backdrop, setBackdrop] = React.useState('blur')
+	const { darkMode } = useTheme()
 	const [theme, setTheme] = useState('')
 
 	useEffect(()=>{
@@ -11,21 +13,21 @@ export default function ModalWindow({ isOpen, onClose, onDelete, darkMode }){
 	}, [darkMode])
 	
 	return(
-			<Modal className={theme} backdrop={backdrop} isOpen={isOpen} onClose={onClose}>
-				<ModalContent>
-					<ModalHeader className="flex flex-col gap-1">Delete ToDo</ModalHeader>
-					<ModalBody>
-						<p>Are you sure you want to delete the ToDo?</p>
-					</ModalBody>
-					<ModalFooter>
-						<Button color="danger" variant="light" onClick={onClose}>
-							Cancel
-						</Button>
-						<Button color="primary" onClick={onDelete}>
-							Delete
-						</Button>
-					</ModalFooter>
-				</ModalContent>
-			</Modal>
+		<Modal className={theme} backdrop={backdrop} isOpen={isOpen} onClose={onClose}>
+			<ModalContent>
+				<ModalHeader className="flex flex-col gap-1">Delete ToDo</ModalHeader>
+				<ModalBody>
+					<p>Are you sure you want to delete the ToDo?</p>
+				</ModalBody>
+				<ModalFooter>
+					<Button color="danger" variant="light" onClick={onClose}>
+						Cancel
+					</Button>
+					<Button color="primary" onClick={onDelete}>
+						Delete
+					</Button>
+				</ModalFooter>
+			</ModalContent>
+		</Modal>
 	)
 }

@@ -7,34 +7,39 @@ import DarkModeToggle from './components/darkModeToggle';
 import Header from './components/Header';
 import Login from './components/Login';
 import Register from './components/Register';
-import ModalWindow from './components/ModalWindow';
+import { ThemeProvider, useTheme } from './components/ThemeContext';
 
-
-function App() {
-	const [darkMode, setDarkMode] = useState(true)
-
-	const toggleDarkMode = () =>{
-		setDarkMode((prevDarkMode) => !prevDarkMode)
-	}
-
+function AppContent() {
+  const { darkMode, toggleDarkMode } = useTheme();
 
   return (
-	<BrowserRouter>
-		<NextUIProvider>
-			<Header darkMode={darkMode} />
-			<main className={`${darkMode ? 'dark' : ''} text-foreground bg-background`}>
-					<div className='switch-btn'>
-							<DarkModeToggle darkMode={darkMode} toggleDarkMode={toggleDarkMode}/>
-					</div>
-					<Routes>
-						<Route path='/' element={<Home darkMode={darkMode}/>}/>
-						<Route path='/register' element={<Register/>} />
-						<Route path='/login' element={<Login/>} />
-					</Routes>
-			</main>	
-		</NextUIProvider>
-	</BrowserRouter>
-  )
+    <>
+      <Header darkMode={darkMode} />
+      <main className={`${darkMode ? 'dark' : ''} text-foreground bg-background`}>
+        <div className='switch-btn'>
+          <DarkModeToggle darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+        </div>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/login' element={<Login />} />
+        </Routes>
+      </main>
+    </>
+  );
 }
+
+function App() {
+  return (
+    <BrowserRouter>
+      <NextUIProvider>
+        <ThemeProvider>
+          <AppContent />
+        </ThemeProvider>
+      </NextUIProvider>
+    </BrowserRouter>
+  );
+}
+
 
 export default App

@@ -1,9 +1,6 @@
 import PropTypes from 'prop-types';
-//turn off reverse for switching dark mode
-	// <div className={`todo-card 
-	// 		${reverse ? "light" : "dark"}
-	// `}>{children}</div>
-const CardItem = ({ children, reverse, create }) =>{
+
+const CardItem = ({ children }) =>{
 	return(
 		<div 
 			className={`todo-card rounded-large`}
@@ -11,10 +8,6 @@ const CardItem = ({ children, reverse, create }) =>{
 	)
 }
 
-CardItem.defaultProps = {
-	reverse: false,
-	create: false
-}
 CardItem.propTypes = {
 	children: PropTypes.node.isRequired,
 	reverse: PropTypes.bool,

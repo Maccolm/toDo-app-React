@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { MdDeleteForever, MdEdit, MdOutlineCalendarToday } from 'react-icons/md'
-import { Card, CardHeader, CardBody, CardFooter, Divider, Link } from "@nextui-org/react";
+import { Card, CardHeader, CardBody, CardFooter, Divider } from "@nextui-org/react";
 import CardItem from "./Card";
 import Checkbox from './Checkbox';
 

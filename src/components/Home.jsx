@@ -3,13 +3,14 @@ import List from "./List";
 import todoData from "../data/Todo";
 import { useEffect, useState } from "react";
 import Form from "./Form";
-import Item from './Item';
 import ModalWindow from './ModalWindow';
 import EditModal from './EditModal';
 import { useDisclosure } from '@nextui-org/react';
+import { useTheme } from './ThemeContext';
 
 
-const Home = ({ darkMode }) =>{
+const Home = () =>{
+	const { darkMode } = useTheme()
 	const [todo, setTodo] = useState([])
 
 	useEffect(() =>{
@@ -54,14 +55,14 @@ const Home = ({ darkMode }) =>{
 		onEditClose()
 	 }	
 	return (
-		<div className="container">
+		<div className={`container ${darkMode ? 'dark' : ''}`}>
 			<Form addTodo={addTodo}/>
 			<List todo={todo} setTodo={setTodo} handleDelete={deleteTodo} handleEdit={handleEdit}/>
 			{isDeleteOpen && (
-				<ModalWindow darkMode={darkMode} isOpen={isDeleteOpen} onClose={onDeleteClose} onDelete={onDelete}/>
+				<ModalWindow isOpen={isDeleteOpen} onClose={onDeleteClose} onDelete={onDelete}/>
 			)}
 			{isEditOpen && (
-				<EditModal darkMode={darkMode} isOpen={isEditOpen} onClose={onEditClose} todo={editTodo} updateTodo={updateTodo}/>
+				<EditModal isOpen={isEditOpen} onClose={onEditClose} todo={editTodo} updateTodo={updateTodo}/>
 			)}
 		</div>
 	)
