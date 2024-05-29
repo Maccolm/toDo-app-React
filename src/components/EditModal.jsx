@@ -28,7 +28,7 @@ const handleSubmit = () => {
 
 const { darkMode } = useTheme()
 useEffect(()=>{
-	setTheme(darkMode ?  'dark text-foreground' : '');
+	setTheme(darkMode ? 'dark text-foreground' : '');
 	}, [darkMode])
 
 return (

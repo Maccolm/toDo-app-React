@@ -1,4 +1,12 @@
 {
+	"users":[
+		{
+			"name": "test",
+			"email": "email@test.com",
+			"password": "password",
+			"id": 1
+		}
+	],
 	"todos":[
 		{
 			"id": 1,

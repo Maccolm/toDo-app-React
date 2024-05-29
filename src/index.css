@@ -55,13 +55,13 @@ main{
 	min-width: 280px;
 	max-width: 400px;
 }
-.todo-card__container{
-	/* border-radius: 30px; */
-}
 .todo-card__title{
 	padding: 12px 12px 5px 17px;
 	font-size: 23px;
 	letter-spacing: 1px;
+}
+.todo-card__title-login{
+	font-size: 28px;
 }
 .todo-card__task{
 	padding: 5px 12px 0px 17px;
@@ -147,5 +147,11 @@ input:hover{
 }
 .btn:active{
 	background-color: #127b3f;
+}
+.btn-log{
+	font-size: 22px;
+	width: 100%;
+	padding: 8px 0;
+	border-radius: 12px;
 }
 /* =================================================================== */

@@ -8,13 +8,14 @@
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-	 "server": "json-server --watch db.json --port 6001",
-	 "start": "vite",
-	 "dev": "concurrently \"npm run server\" \"npm start\""
+    "server": "json-server --watch db.json --port 6001",
+    "start": "vite",
+    "dev": "concurrently \"npm run server\" \"npm start\""
   },
   "dependencies": {
     "@nextui-org/card": "^2.0.28",
     "@nextui-org/react": "^2.3.6",
+    "axios": "^1.7.2",
     "concurrently": "^8.2.2",
     "framer-motion": "^11.1.9",
     "json-server": "^1.0.0-beta.0",
