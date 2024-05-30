@@ -10,13 +10,16 @@ export default function ModalRegisterCheck({ isOpen, onClose, register }){
 	const [header, setHeader] = useState('')
 	const [body, setBody] = useState('')
 
-	if(register){
-		setHeader('User Created!')
-		setBody('Congratulations, you are registered!')
-	} else {
-		setHeader('User already exist')
-		setBody('Impossible to register a new user, this email already has been registered')
-	}
+	useEffect(() => {
+		if(register){
+			setHeader('User Created!')
+			setBody('Congratulations, you are registered!')
+		} else {
+			setHeader('User already exist')
+			setBody('Impossible to register a new user, this email already has been registered')
+		}
+
+	}, [register])
 
 	useEffect(()=>{
 		setTheme(darkMode ?  'dark text-foreground' : '');

@@ -18,6 +18,7 @@ const Register = () => {
 	const {isOpen, onClose, onOpen} = useDisclosure()
 
 	const checkEmail = (users) => {
+		console.log(users);
 		return users.find((user) => user.email === email) || null
 
 	}
@@ -25,18 +26,17 @@ const Register = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault()
 		try{
-			const res = await axios.get("/users")
+			const res = await axios.get("http://localhost:6001/users")
 			const user = checkEmail(res.data)
 
 			if (user) {
-				setRegister(true)
-				onOpen()
+				setRegister(false)
 			} else {
 				const newUser = { username, email, password }
-				await axios.post("/users", newUser)
+				await axios.post("http://localhost:6001/users", newUser)
 				setRegister(true)
-				onOpen()
 			}
+			onOpen()
 		} catch (error) {
 			console.log('error register', error);
 		}
