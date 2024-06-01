@@ -18,7 +18,6 @@ export default function ModalRegisterCheck({ isOpen, onClose, register }){
 			setHeader('User already exist')
 			setBody('Impossible to register a new user, this email already has been registered')
 		}
-
 	}, [register])
 
 	useEffect(()=>{

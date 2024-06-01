@@ -18,9 +18,7 @@ const Register = () => {
 	const {isOpen, onClose, onOpen} = useDisclosure()
 
 	const checkEmail = (users) => {
-		console.log(users);
 		return users.find((user) => user.email === email) || null
-
 	}
 
 	const handleSubmit = async (e) => {
@@ -52,25 +50,25 @@ const Register = () => {
 				<CardItem className='ml-auto mr-auto'>
 					<Card className="max-w-[400px] w-[100%] form-card mb-3 ">
 						<CardHeader className="p-0 block">
-							<form>
+							<form onSubmit={handleSubmit}> 
 								<h1 className="todo-card__title-login mb-3 ml-2 mt-3 text-center">Register User</h1>
 								<div className="p-3 mb-3 label-container">
 									<div className="input-container mr-3 ml-3">
-										<input type="text" id="title" placeholder="Name" value={username} onChange={(e) => setUserName(e.target.value)}/>
+										<input type="text" id="title" placeholder="Name" value={username} onChange={(e) => setUserName(e.target.value)} required/>
 									</div>
 								</div>
 								<div className="p-3 pt-0  mb-3 label-container">
 									<div className="input-container mr-3 ml-3">
-										<input  type="text" id="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+										<input  type="text" id="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required/>
 									</div>
 								</div>
 								<div className="p-3 pt-0  mb-3 label-container">
 									<div className="input-container mr-3 ml-3">
-										<input  type="password" id="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+										<input  type="password" id="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
 									</div>
 								</div>
 								<div className="btn-container m-3 mb-6 ml-auto mr-auto pl-6 pr-6">
-									<button className="btn btn-log" type="submit" onClick={handleSubmit}><p>Register</p></button>
+									<button className="btn btn-log" type="submit"><p>Register</p></button>
 								</div>
 							</form>
 						</CardHeader>
