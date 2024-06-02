@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {v4 as uuidv4} from 'uuid'
 import List from "./List";
 import todoData from "../data/Todo";
@@ -5,7 +6,7 @@ import { useEffect, useState } from "react";
 import Form from "./Form";
 import ModalWindow from './ModalWindow';
 import EditModal from './EditModal';
-import { useDisclosure } from '@nextui-org/react';
+import { Button, useDisclosure } from '@nextui-org/react';
 import { useTheme } from './ThemeContext';
 
 
@@ -31,18 +32,38 @@ const Home = () =>{
 	const [deleteId, setDeleteId] = useState(null);
 	const [editTodo, setEditTodo] = useState(null) 
 
-	const addTodo = (newTodo) =>{
+	const addTodo = async (newTodo) =>{
 		newTodo.id = uuidv4()
 		setTodo([newTodo, ...todo])
+		
+		try {
+			const response = await axios.post("/api/todos", newTodo)
+			if (response.status !== 201) {
+				throw new Error(" Failed to add todo")
+			}
+		} catch (error) {
+			console.log("Error adding todo", error);
+		}
 	}
 	const deleteTodo = (id) => {
 		setDeleteId(id)
 		onDeleteOpen()
 	}
-	const onDelete = () =>{
-		setTodo(todo.filter((item) => item.id !== deleteId ))
-		setDeleteId(null)
-		onDeleteClose()
+	
+	const onDelete = async () =>{
+		
+		try {
+			const response = await axios.delete(`/api/todos/${deleteId}`)
+			if (response.status === 200) {
+				setTodo(todo.filter((item) => item.id !== deleteId))
+				setDeleteId(null)
+				onDeleteClose()
+			} else {
+				throw new Error("Failed to delete todo")
+			}
+		} catch (error) {
+			console.error("Error deleting todo", error);
+		}
 	 }
 
 	 const handleEdit = (todo) => {
@@ -50,12 +71,32 @@ const Home = () =>{
 		onEditOpen()
 	 }
 
-	 const updateTodo = (updatedTodo) => {
-		setTodo(todo.map((todo) => (todo.id ===updatedTodo.id ? updatedTodo : todo)))
+	 const updateTodo = async (updatedTodo) => {
+		setTodo(todo.map((todo) => (todo.id === updatedTodo.id ? updatedTodo : todo)))
+		
+		try {
+			const response = await axios.put(`/api/todos/${updatedTodo.id}`, updatedTodo)
+			if (response.status !== 200) {
+				throw new Error("Failed to update todo")
+			}
+		} catch (error) {
+			console.error("Error updating todo", error);
+		}
+
 		onEditClose()
 	 }	
+
+	 const logOut = () => {
+		setTimeout(() =>{
+			window.location.reload()
+		},300)
+		localStorage.removeItem('user')
+	 }
 	return (
 		<div className={`container ${darkMode ? 'dark' : ''}`}>
+			<div className="absolute right-6 top-24">
+				<Button variant='ghost' onClick={logOut}>Log out</Button>
+			</div>
 			<Form addTodo={addTodo}/>
 			<List todo={todo} setTodo={setTodo} handleDelete={deleteTodo} handleEdit={handleEdit}/>
 			{isDeleteOpen && (

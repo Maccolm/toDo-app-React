@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useState } from 'react';
 import { MdDeleteForever, MdEdit, MdOutlineCalendarToday } from 'react-icons/md'
 import { Card, CardHeader, CardBody, CardFooter, Divider } from "@nextui-org/react";
@@ -5,10 +6,30 @@ import CardItem from "./Card";
 import Checkbox from './Checkbox';
 
 const Item = ({ todo, handleEdit, handleDelete }) =>{
-
 	const [done, setDone] = useState(todo.done)
-	const handleChange = (e) =>{
-		setDone(e.target.checked)
+	const [loading, setLoading] = useState(false)
+
+	const handleChange = async (e) =>{
+		const newDone = e.target.checked
+		setDone(newDone)
+		setLoading(true)
+
+		try {
+			const response = await axios.put(`/api/todos/${todo.id}`, {
+				...todo,
+				done: newDone
+			})
+			if (response.status !== 200) {
+				throw new Error("Failed to update todo")
+			}
+		} catch (error) {
+			console.error("Error to update \'done\' ", error);
+			setDone(todo.done)
+		} finally {
+			setTimeout(() => {
+				setLoading(false)
+			},1300)
+		}
 	}
 
 	return (
@@ -32,7 +53,7 @@ const Item = ({ todo, handleEdit, handleDelete }) =>{
 						<MdOutlineCalendarToday className='calender__icon'/>
 						<p>{todo.day}</p>
 					</div>
-					<Checkbox label={done === true ? "Done" : "Doing"} value={done} onChange={handleChange}/>
+					<Checkbox label={done === true ? "Done" : "Doing"} value={done} onChange={handleChange} disabled={loading}/>
 				</CardFooter>
 			</Card>
 		</CardItem>

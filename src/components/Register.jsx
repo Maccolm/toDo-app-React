@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import { useDisclosure } from "@nextui-org/react"
 import axios from "axios"
 import ModalRegisterCheck from "./modalUserRegisterCheck"
+import { Link } from "react-router-dom"
 
 const Register = () => {
 
@@ -76,6 +77,7 @@ const Register = () => {
 				</CardItem>
 			</div>
 				{isOpen && (<ModalRegisterCheck register={register} isOpen={isOpen} onClose={onClose}/>)}
+				<div className="p-3">Already have an account? <Link to={'/login'}><span className="underline">Sign in here...</span></Link></div>
 		</div>
 	)
 } 

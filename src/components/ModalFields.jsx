@@ -3,9 +3,14 @@ import { useTheme } from "./ThemeContext";
 import { useEffect } from "react";
 import { useState } from "react";
 
-export default function ModalFields({ isOpen, onClose }){
+export default function ModalFields({ isOpen, onClose, isOpenErrorLogin }){
 	const { darkMode } = useTheme()
 	const [theme, setTheme] = useState('') 
+	const [text, setText] = useState('')
+	
+	useEffect(() => {
+		setText(isOpenErrorLogin ? 'Wrong email or password' : 'All fields are required')
+	},[isOpenErrorLogin])
 
 	useEffect(() => {
 		setTheme(darkMode ? "dark text-foreground" : '')
@@ -13,9 +18,9 @@ export default function ModalFields({ isOpen, onClose }){
 	return (
 			<Modal className={theme} isOpen={isOpen} onClose={onClose}>
 			<ModalContent>
-				<ModalHeader className="flex flex-col gap-1">All fields are required</ModalHeader>
+				<ModalHeader className="flex flex-col gap-1">{text}</ModalHeader>
 				<ModalFooter>
-					<Button color="success" variant="light" onClick={onClose}>
+					<Button variant="light" color={isOpenErrorLogin ? 'danger' : 'success'} onClick={onClose}>
 						Ok
 					</Button>
 				</ModalFooter>

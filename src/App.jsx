@@ -9,7 +9,6 @@ import Login from './components/Login';
 import Register from './components/Register';
 import { ThemeProvider, useTheme } from './components/ThemeContext';
 import PrivateRoute from './components/PrivateRoute';
-import TestPrivateRoute from './components/TestPrivateRoute';
 
 function AppContent() {
   const { darkMode, toggleDarkMode } = useTheme();
@@ -22,14 +21,14 @@ function AppContent() {
           <DarkModeToggle darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         </div>
         <Routes>
-          <Route path='/' element={<Home />} />
+          {/* <Route path='/' element={<Home />} /> */}
           <Route path='/register' element={<Register />} />
           <Route path='/login' element={<Login />} />
 			 <Route
 			 	path="/user"
 				element={
 					<PrivateRoute>
-						<TestPrivateRoute/>
+						<Home/>
 					</PrivateRoute>
 				}
 			 />
