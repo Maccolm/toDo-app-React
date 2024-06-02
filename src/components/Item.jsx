@@ -28,7 +28,7 @@ const Item = ({ todo, handleEdit, handleDelete }) =>{
 		} finally {
 			setTimeout(() => {
 				setLoading(false)
-			},1300)
+			},1500)
 		}
 	}
 

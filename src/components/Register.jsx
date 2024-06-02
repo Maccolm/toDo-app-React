@@ -6,6 +6,7 @@ import { useDisclosure } from "@nextui-org/react"
 import axios from "axios"
 import ModalRegisterCheck from "./modalUserRegisterCheck"
 import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 const Register = () => {
 
@@ -13,6 +14,7 @@ const Register = () => {
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
 	const [register, setRegister] = useState(null)
+	const navigate = useNavigate()
 
 	const [theme, setTheme] = useState("")
 	const { darkMode } = useTheme()
@@ -40,6 +42,11 @@ const Register = () => {
 			console.log('error register', error);
 		}
 	}
+	useEffect(() => {
+		if (!isOpen && register !== null) {
+			if(register) navigate('/user')
+		}
+	},[register, isOpen, navigate])
 
 	useEffect(() => {
 		setTheme(darkMode ? 'dark text-foreground' : '')

@@ -7,7 +7,7 @@
       "id": "1"
     },
     {
-      "id": "6b09",
+      "id": "c3a1",
       "username": "vitalii",
       "email": "16elvis16@gmail.com",
       "password": "sasasa"
@@ -19,14 +19,14 @@
       "title": "preparing to the game",
       "task": "Prepare everything to the game Airsoft",
       "day": "Friday",
-      "done": false
+      "done": true
     },
     {
       "id": "2",
       "title": "Airsoft game",
       "task": "Go to game and play at 9:00",
       "day": "Saturday",
-      "done": false
+      "done": true
     },
     {
       "id": "3",
@@ -40,7 +40,7 @@
       "title": "Laundry",
       "task": "Don't forget to take laundry 14:00",
       "day": "Wednesday",
-      "done": false
+      "done": true
     },
     {
       "id": "5",

@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Modal, ModalContent, ModalHeader, ModalFooter, Button, ModalBody } from "@nextui-org/react";
 import { useTheme } from "./ThemeContext";
+import { useNavigate } from "react-router-dom";
 
 export default function ModalRegisterCheck({ isOpen, onClose, register }){
 	const [backdrop, setBackdrop] = React.useState('blur')
@@ -32,7 +33,7 @@ export default function ModalRegisterCheck({ isOpen, onClose, register }){
 					<p>{body}</p>
 				</ModalBody>
 				<ModalFooter>
-					<Button color={register ? "success" : "danger"} variant="light" onClick={onClose}>
+					<Button color={register ? "success" : "danger"} variant="light" onClick={onClose} >
 						Ok
 					</Button>
 				</ModalFooter>
