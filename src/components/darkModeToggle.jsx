@@ -1,6 +1,6 @@
 import { Switch } from "@nextui-org/react"
-import { MoonIcon } from "../../public/img/icons/MoonIcon"
-import { SunIcon } from "../../public/img/icons/SunIcon"
+import { MoonIcon } from "../assets/icons/MoonIcon"
+import { SunIcon } from "../assets/icons/SunIcon"
 
 const DarkModeToggle = ({darkMode, toggleDarkMode}) => {
 
