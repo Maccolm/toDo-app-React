@@ -1,53 +1,58 @@
 {
   "users": [
     {
-      "name": "test",
-      "email": "email@test.com",
-      "password": "password",
-      "id": "1"
-    },
-    {
-      "id": "c3a1",
+      "id": "7a62",
       "username": "vitalii",
       "email": "16elvis16@gmail.com",
       "password": "sasasa"
+    },
+    {
+      "id": "68ef",
+      "username": "vitalii",
+      "email": "martyit@ukr.net",
+      "password": "qqqqqqq"
     }
   ],
   "todos": [
-    {
-      "id": "1",
-      "title": "preparing to the game",
-      "task": "Prepare everything to the game Airsoft",
-      "day": "Friday",
-      "done": true
-    },
     {
       "id": "2",
       "title": "Airsoft game",
       "task": "Go to game and play at 9:00",
       "day": "Saturday",
-      "done": true
-    },
-    {
-      "id": "3",
-      "title": "SFI",
-      "task": "Go to SFI class and study Swedish",
-      "day": "Monday",
-      "done": false
+      "done": true,
+      "userId": "7a62"
     },
     {
       "id": "4",
       "title": "Laundry",
       "task": "Don't forget to take laundry 14:00",
       "day": "Wednesday",
-      "done": true
+      "done": true,
+      "userId": "7a62"
     },
     {
       "id": "5",
       "title": "Project",
       "task": "Continue to develop you own project, speak with a team. 19:00",
       "day": "Thursday",
-      "done": false
+      "done": false,
+      "userId": "7a62"
+    },
+    {
+      "id": "12e4a4ed-0f33-4df2-9953-07a42af60c5b",
+      "title": "hello user",
+      "task": "okay",
+      "day": "Tuesday",
+      "done": false,
+      "userId": "7a62"
+    },
+    {
+      "id": "19506230-9556-4046-9740-9086c8061c48",
+      "title": "My second change",
+      "task": "hello hello",
+      "day": "",
+      "done": false,
+      "userId": "68ef"
     }
   ]
 }

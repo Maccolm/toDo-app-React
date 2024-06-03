@@ -34,7 +34,7 @@ const Form = ({ addTodo }) => {
 						<Divider className="p-0"/>
 						<div className="p-3 mb-3 label-container">
 							<div className="input-container mr-3 ml-3">
-								<input value={title} type="text" id="title" placeholder="Title" onChange={(e) => setTitle(e.target.value)}/>
+								<input value={title} type="text" id="title" placeholder="Title" onChange={(e) => setTitle(e.target.value)} required/>
 							</div>
 						</div>
 						<div className="p-3 pt-0  mb-3 label-container">

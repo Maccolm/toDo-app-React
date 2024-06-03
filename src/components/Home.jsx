@@ -18,11 +18,10 @@ const Home = () =>{
 		fetchTodos()
 	}, [])
 
-	const fetchTodos = async () =>{
-		const response = await fetch("/api/todos")
-		const data = await response.json()
-
-		setTodo(data)
+	const fetchTodos = async () => {
+		const userId = JSON.parse(localStorage.getItem('user'))
+		const response = await axios.get(`/api/todos?userId=${userId}`)
+		setTodo(response.data)
 	}
 
 
@@ -32,8 +31,10 @@ const Home = () =>{
 	const [deleteId, setDeleteId] = useState(null);
 	const [editTodo, setEditTodo] = useState(null) 
 
-	const addTodo = async (newTodo) =>{
+	const addTodo = async (newTodo) => {
+		const userId = JSON.parse(localStorage.getItem('user'))
 		newTodo.id = uuidv4()
+		newTodo.userId = userId
 		setTodo([newTodo, ...todo])
 		
 		try {
@@ -45,13 +46,13 @@ const Home = () =>{
 			console.log("Error adding todo", error);
 		}
 	}
+
 	const deleteTodo = (id) => {
 		setDeleteId(id)
 		onDeleteOpen()
 	}
 	
 	const onDelete = async () =>{
-		
 		try {
 			const response = await axios.delete(`/api/todos/${deleteId}`)
 			if (response.status === 200) {
