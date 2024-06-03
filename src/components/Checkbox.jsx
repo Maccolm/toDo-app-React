@@ -19,12 +19,12 @@ const checkbox = tv({
         base: "outline-none ring-2 ring-focus ring-offset-2 ring-offset-background",
       }
     },
-	 isDisabled: {
+	isDisabled: {
 		true: {
 			base:"border-muted bg-muted cursor-not-allowed",
 			content: "text-muted-foreground"
 		}
-	 }
+	}
   }
 })
 
