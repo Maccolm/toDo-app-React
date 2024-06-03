@@ -35,11 +35,11 @@ export default function Login () {
 			return
 		} 
 		try{
-			const user = await axios
-			.get("http://localhost:6001/users")
-			.then((res) => checkUser(res.data, email, password))
+			const response = await axios.get("http://localhost:6001/users")
+			console.log(response.data);
+			const user = checkUser(response.data)
 
-			if(user.email === email && user.password === password) {
+			if (user) {
 				localStorage.setItem("user", JSON.stringify(user.id))
 				navigate("/user")
 				setEmail('')
@@ -50,9 +50,6 @@ export default function Login () {
 			setIsOpenErrorLogin(true)
 			setIsOpen(true)
 		}
-
-		// setEmail("")
-		// setPassword("")
 	}	
 
 	useEffect(() => {
@@ -93,7 +90,7 @@ export default function Login () {
 					</Card>
 				</CardItem>
 			</div>
-			<div className="p-3">New user? <Link to={'/register'}><span className="underline">Sign up here...</span></Link></div>
+			<div className="p-3 m-auto"><p>New user? <Link to={'/register'}><span className="underline">Sign up here...</span></Link></p></div>
 			{isOpen && (<ModalFields isOpen={isOpen} isOpenErrorLogin={isOpenErrorLogin} onClose={handleClose}/>)}
 		</div>
 	)

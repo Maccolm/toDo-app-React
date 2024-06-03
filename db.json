@@ -5,12 +5,6 @@
       "username": "vitalii",
       "email": "16elvis16@gmail.com",
       "password": "sasasa"
-    },
-    {
-      "id": "68ef",
-      "username": "vitalii",
-      "email": "martyit@ukr.net",
-      "password": "qqqqqqq"
     }
   ],
   "todos": [
@@ -19,7 +13,7 @@
       "title": "Airsoft game",
       "task": "Go to game and play at 9:00",
       "day": "Saturday",
-      "done": true,
+      "done": false,
       "userId": "7a62"
     },
     {
@@ -29,30 +23,6 @@
       "day": "Wednesday",
       "done": true,
       "userId": "7a62"
-    },
-    {
-      "id": "5",
-      "title": "Project",
-      "task": "Continue to develop you own project, speak with a team. 19:00",
-      "day": "Thursday",
-      "done": false,
-      "userId": "7a62"
-    },
-    {
-      "id": "12e4a4ed-0f33-4df2-9953-07a42af60c5b",
-      "title": "hello user",
-      "task": "okay",
-      "day": "Tuesday",
-      "done": false,
-      "userId": "7a62"
-    },
-    {
-      "id": "19506230-9556-4046-9740-9086c8061c48",
-      "title": "My second change",
-      "task": "hello hello",
-      "day": "",
-      "done": false,
-      "userId": "68ef"
     }
   ]
 }

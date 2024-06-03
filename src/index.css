@@ -11,7 +11,10 @@ main{
 	height: 100%;
 	padding: 2em;
 }
-
+.greeting-title{
+	font-size: 23px;
+	font-weight: 600;
+}
 /* ============================================================= */
 .header{
 	padding: 20px 0;

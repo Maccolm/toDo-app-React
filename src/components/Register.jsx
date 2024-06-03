@@ -84,7 +84,7 @@ const Register = () => {
 				</CardItem>
 			</div>
 				{isOpen && (<ModalRegisterCheck register={register} isOpen={isOpen} onClose={onClose}/>)}
-				<div className="p-3">Already have an account? <Link to={'/login'}><span className="underline">Sign in here...</span></Link></div>
+				<div className="p-3 m-auto"><p>Already have an account? <Link to={'/login'}><span className="underline">Sign in here...</span></Link></p></div>
 		</div>
 	)
 } 
