@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import ThemeContext from './ThemeContext';
+import ThemeContext from './ThemeContext.js';
 
 export const ThemeProvider = ({ children }) => {
   const [darkMode, setDarkMode] = useState(true);
