@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Modal, ModalContent, ModalHeader, ModalFooter, Button, ModalBody } from "@nextui-org/react";
-import { useTheme } from "./ThemeContext";
+import { useTheme } from "./useTheme";
 import PropTypes from 'prop-types'
 
 export default function ModalWindow({ isOpen, onClose, onDelete }){

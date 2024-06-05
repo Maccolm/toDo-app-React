@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Modal, ModalContent, ModalHeader, ModalFooter, Button, ModalBody, Input } from '@nextui-org/react';
-import { useTheme } from './ThemeContext';
+import { useTheme } from './useTheme';
 import PropTypes from 'prop-types'
 
 const EditModal = ({ isOpen, onClose, todo, updateTodo }) => {

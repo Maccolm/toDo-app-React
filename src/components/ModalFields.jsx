@@ -1,5 +1,5 @@
 import { Modal, ModalContent, ModalHeader, ModalFooter, Button } from "@nextui-org/react";
-import { useTheme } from "./ThemeContext";
+import { useTheme } from "./useTheme";
 import { useEffect } from "react";
 import { useState } from "react";
 import PropTypes from 'prop-types'

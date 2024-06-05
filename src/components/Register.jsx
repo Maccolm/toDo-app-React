@@ -1,6 +1,6 @@
 import { Card, CardHeader } from "@nextui-org/card"
 import CardItem from "./Card"
-import { useTheme } from "./ThemeContext"
+import { useTheme } from "./useTheme"
 import { useEffect, useState } from "react"
 import { useDisclosure } from "@nextui-org/react"
 import axios from "axios"

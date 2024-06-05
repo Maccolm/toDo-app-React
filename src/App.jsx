@@ -6,7 +6,8 @@ import DarkModeToggle from './components/darkModeToggle';
 import Header from './components/Header';
 import Login from './components/Login';
 import Register from './components/Register';
-import { ThemeProvider, useTheme } from './components/ThemeContext';
+import { ThemeProvider } from './components/ThemeProvider';
+import { useTheme } from './components/useTheme';
 import PrivateRoute from './components/PrivateRoute';
 import StartPage from './components/StartPage';
 

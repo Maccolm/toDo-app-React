@@ -6,7 +6,7 @@ import Form from "./Form";
 import ModalWindow from './ModalWindow';
 import EditModal from './EditModal';
 import { Button, useDisclosure } from '@nextui-org/react';
-import { useTheme } from './ThemeContext';
+import { useTheme } from './useTheme';
 
 
 const Home = () =>{
