@@ -21,17 +21,17 @@ function AppContent() {
           <DarkModeToggle darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         </div>
         <Routes>
-          <Route path='/' element={<StartPage/>} />
-          <Route path='/register' element={<Register />} />
-          <Route path='/login' element={<Login />} />
-			 <Route
-			 	path="/user"
+         <Route path='/' element={<StartPage/>} />
+         <Route path='/register' element={<Register />} />
+         <Route path='/login' element={<Login />} />
+			<Route
+				path="/user"
 				element={
 					<PrivateRoute>
 						<Home/>
 					</PrivateRoute>
 				}
-			 />
+			/>
         </Routes>
       </main>
     </>

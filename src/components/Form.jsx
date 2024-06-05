@@ -3,12 +3,13 @@ import { Card, CardHeader } from "@nextui-org/card"
 import CardItem from "./Card"
 import Button from "./Button"
 import { Divider } from "@nextui-org/react"
+import PropTypes from 'prop-types'
 
 const Form = ({ addTodo }) => {
 	const [title, setTitle] = useState("")
 	const [task, setTask] = useState("")
 	const [day, setDay] = useState("")
-	const [done, setDone] = useState(false)
+	const [done] = useState(false)
 
 	const handleSubmit = (e) =>{
 		e.preventDefault()
@@ -64,5 +65,8 @@ const Form = ({ addTodo }) => {
 			</Card>
 		</CardItem>
 	)
+}
+Form.propTypes = {
+	addTodo: PropTypes.func.isRequired
 }
 export default Form

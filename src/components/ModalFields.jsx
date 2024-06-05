@@ -1,7 +1,8 @@
-import { Modal, ModalContent, ModalHeader, ModalFooter, Button, ModalBody } from "@nextui-org/react";
+import { Modal, ModalContent, ModalHeader, ModalFooter, Button } from "@nextui-org/react";
 import { useTheme } from "./ThemeContext";
 import { useEffect } from "react";
 import { useState } from "react";
+import PropTypes from 'prop-types'
 
 export default function ModalFields({ isOpen, onClose, isOpenErrorLogin }){
 	const { darkMode } = useTheme()
@@ -27,4 +28,9 @@ export default function ModalFields({ isOpen, onClose, isOpenErrorLogin }){
 			</ModalContent>
 		</Modal>
 	)
+}
+ModalFields.propTypes = { 
+	isOpen: PropTypes.bool.isRequired, 
+	onClose: PropTypes.func.isRequired, 
+	isOpenErrorLogin: PropTypes.bool.isRequired 
 }

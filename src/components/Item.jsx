@@ -4,6 +4,7 @@ import { MdDeleteForever, MdEdit, MdOutlineCalendarToday } from 'react-icons/md'
 import { Card, CardHeader, CardBody, CardFooter, Divider } from "@nextui-org/react";
 import CardItem from "./Card";
 import Checkbox from './Checkbox';
+import PropTypes from 'prop-types'
 
 const Item = ({ todo, handleEdit, handleDelete }) =>{
 	const [done, setDone] = useState(todo.done)
@@ -23,7 +24,7 @@ const Item = ({ todo, handleEdit, handleDelete }) =>{
 				throw new Error("Failed to update todo")
 			}
 		} catch (error) {
-			console.error("Error to update \'done\' ", error);
+			console.error("Error to update 'done' ", error);
 			setDone(todo.done)
 		} finally {
 			setTimeout(() => {
@@ -59,5 +60,9 @@ const Item = ({ todo, handleEdit, handleDelete }) =>{
 		</CardItem>
 	)
 }
-
+Item.propTypes = {
+	todo: PropTypes.object.isRequired,
+	handleEdit: PropTypes.func.isRequired,
+	handleDelete: PropTypes.func.isRequired
+}
 export default Item

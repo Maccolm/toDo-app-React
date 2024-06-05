@@ -1,5 +1,4 @@
-import React from "react";
-import { Card, CardHeader, CardBody, CardFooter, Divider, Image, Button } from "@nextui-org/react";
+import { Card, CardHeader, CardBody, Divider, Image, Button } from "@nextui-org/react";
 import { Link } from "react-router-dom";
 
 
@@ -21,7 +20,7 @@ export default function StartPage () {
 			<Divider/>
 			<CardBody>
 				<div className="mb-5 ml-3">
-					<p>Welcome to ToDo app. Here you can create, edit, manage your notes or tasks, to mark them. Let's try it!</p>
+					<p>Welcome to ToDo app. Here you can create, edit, manage your notes or tasks, to mark them. Let&apos;s try it!</p>
 				</div>
 				<div className="buttons flex justify-center gap-8">
 					<Link to={'/login'}> 

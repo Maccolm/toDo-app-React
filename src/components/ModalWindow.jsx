@@ -2,9 +2,10 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Modal, ModalContent, ModalHeader, ModalFooter, Button, ModalBody } from "@nextui-org/react";
 import { useTheme } from "./ThemeContext";
+import PropTypes from 'prop-types'
 
 export default function ModalWindow({ isOpen, onClose, onDelete }){
-	const [backdrop, setBackdrop] = React.useState('blur')
+	const [backdrop] = React.useState('blur')
 	const { darkMode } = useTheme()
 	const [theme, setTheme] = useState('')
 
@@ -30,4 +31,9 @@ export default function ModalWindow({ isOpen, onClose, onDelete }){
 			</ModalContent>
 		</Modal>
 	)
+}
+ModalWindow.propTypes = { 
+	isOpen: PropTypes.bool.isRequired,
+	onClose: PropTypes.func.isRequired,
+	onDelete: PropTypes.func.isRequired
 }

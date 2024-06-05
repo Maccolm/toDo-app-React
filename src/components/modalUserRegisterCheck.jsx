@@ -2,10 +2,10 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Modal, ModalContent, ModalHeader, ModalFooter, Button, ModalBody } from "@nextui-org/react";
 import { useTheme } from "./ThemeContext";
-import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types"
 
 export default function ModalRegisterCheck({ isOpen, onClose, register }){
-	const [backdrop, setBackdrop] = React.useState('blur')
+	const [backdrop] = React.useState('blur')
 	const { darkMode } = useTheme()
 	const [theme, setTheme] = useState('')
 	const [header, setHeader] = useState('')
@@ -40,4 +40,9 @@ export default function ModalRegisterCheck({ isOpen, onClose, register }){
 			</ModalContent>
 		</Modal>
 	)
+}
+ModalRegisterCheck.propTypes = { 
+	isOpen: PropTypes.bool.isRequired, 
+	onClose: PropTypes.func.isRequired, 
+	register: PropTypes.bool.isRequired 
 }

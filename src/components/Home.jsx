@@ -1,7 +1,6 @@
 import axios from 'axios';
 import {v4 as uuidv4} from 'uuid'
 import List from "./List";
-import todoData from "../data/Todo";
 import { useEffect, useState } from "react";
 import Form from "./Form";
 import ModalWindow from './ModalWindow';
@@ -65,14 +64,14 @@ const Home = () =>{
 		} catch (error) {
 			console.error("Error deleting todo", error);
 		}
-	 }
+	}
 
-	 const handleEdit = (todo) => {
+	const handleEdit = (todo) => {
 		setEditTodo(todo)
 		onEditOpen()
-	 }
+	}
 
-	 const updateTodo = async (updatedTodo) => {
+	const updateTodo = async (updatedTodo) => {
 		setTodo(todo.map((todo) => (todo.id === updatedTodo.id ? updatedTodo : todo)))
 		
 		try {
@@ -85,14 +84,14 @@ const Home = () =>{
 		}
 
 		onEditClose()
-	 }	
+	}	
 
-	 const logOut = () => {
+	const logOut = () => {
 		setTimeout(() =>{
 			window.location.reload()
 		},300)
 		localStorage.removeItem('user')
-	 }
+	}
 	return (
 		<div className={`container ${darkMode ? 'dark' : ''}`}>
 			<div className="absolute right-6 top-24">

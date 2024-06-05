@@ -1,6 +1,6 @@
 import { useCheckbox, Chip, VisuallyHidden, tv } from "@nextui-org/react"
 import { CheckIcon } from "../assets/CheckIcon"
-import { useState } from "react"
+import PropTypes from 'prop-types'
 
 const checkbox = tv({
 	slots: {
@@ -33,8 +33,6 @@ const Checkbox = ({ label, value, onChange, disabled }) => {
 
 	const {
 		children,
-		isSelected,
-		isFocusVisible,
 		getBaseProps,
 		getLabelProps,
 		getInputProps,
@@ -78,4 +76,11 @@ const Spinner = () => (
     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
   </svg>
 );
+Checkbox.propTypes = {
+	label: PropTypes.string.isRequired,
+	value: PropTypes.bool.isRequired,
+	onChange: PropTypes.func.isRequired,
+	disabled: PropTypes.bool.isRequired,
+}
+
 export default Checkbox
