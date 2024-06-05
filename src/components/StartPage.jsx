@@ -1,5 +1,6 @@
 import { Card, CardHeader, CardBody, Divider, Image, Button } from "@nextui-org/react";
 import { Link } from "react-router-dom";
+import img from '../assets/icons/favicon-portfolio.svg'
 
 
 
@@ -13,7 +14,7 @@ export default function StartPage () {
 					height={40}
 					width={40}
 					radius="sm"
-					src="../../public/img/icons/favicon-portfolio.svg"
+					src={img}
 				/>
 				<h1 className="greeting-title">Welcome to ToDo App</h1>
 			</CardHeader>
