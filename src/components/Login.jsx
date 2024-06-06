@@ -6,6 +6,7 @@ import axios from "axios"
 import { useNavigate } from "react-router-dom"
 import ModalFields from "./ModalFields"
 import { Link } from "react-router-dom"
+import api from "../services/api"
 
 export default function Login () {
 	const [email, setEmail] = useState('')
@@ -35,7 +36,7 @@ export default function Login () {
 			return
 		} 
 		try{
-			const response = await axios.get("http://localhost:6001/users")
+			const response = await api.get("/users")
 			console.log(response.data);
 			const user = checkUser(response.data)
 

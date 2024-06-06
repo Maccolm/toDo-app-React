@@ -7,6 +7,7 @@ import axios from "axios"
 import ModalRegisterCheck from "./modalUserRegisterCheck"
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
+import api from "../services/api"
 
 const Register = () => {
 
@@ -27,14 +28,14 @@ const Register = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault()
 		try{
-			const res = await axios.get("http://localhost:6001/users")
+			const res = await api.get("/users")
 			const user = checkEmail(res.data)
 
 			if (user) {
 				setRegister(false)
 			} else {
 				const newUser = { username, email, password }
-				await axios.post("http://localhost:6001/users", newUser)
+				await api.post("/users", newUser)
 				setRegister(true)
 			}
 			onOpen()
