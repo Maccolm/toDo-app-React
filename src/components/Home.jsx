@@ -21,7 +21,7 @@ const Home = () =>{
 	const fetchTodos = async () => {
 		const userId = JSON.parse(localStorage.getItem('user'))
 		try {
-			const response = await axios.get(`http://localhost:6001/todos?userId=${userId}`)
+			const response = await api.get(`/todos?userId=${userId}`)
 			setTodo(response.data)
 			console.log(response.data);
 		} catch (error) {
@@ -43,7 +43,7 @@ const Home = () =>{
 		setTodo([newTodo, ...todo])
 		
 		try {
-			const response = await api.post("http://localhost:6001/todos", newTodo)
+			const response = await api.post("/todos", newTodo)
 			if (response.status !== 201) {
 				throw new Error(" Failed to add todo")
 			}
@@ -59,7 +59,7 @@ const Home = () =>{
 	
 	const onDelete = async () =>{
 		try {
-			const response = await api.delete(`http://localhost:6001/todos/${deleteId}`)
+			const response = await api.delete(`/todos/${deleteId}`)
 			if (response.status === 200) {
 				setTodo(todo.filter((item) => item.id !== deleteId))
 				setDeleteId(null)
@@ -81,7 +81,7 @@ const Home = () =>{
 		setTodo(todo.map((todo) => (todo.id === updatedTodo.id ? updatedTodo : todo)))
 		
 		try {
-			const response = await api.put(`http://localhost:6001/todos/${updatedTodo.id}`, updatedTodo)
+			const response = await api.put(`/todos/${updatedTodo.id}`, updatedTodo)
 			if (response.status !== 200) {
 				throw new Error("Failed to update todo")
 			}
