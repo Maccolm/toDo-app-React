@@ -1,6 +1,6 @@
 import { Card, CardHeader, CardBody, Divider, Image, Button } from "@nextui-org/react";
 import { Link } from "react-router-dom";
-import img from '../assets/icons/favicon-portfolio.svg'
+import img from '../assets/icons/icon-portfolio.svg'
 
 
 

@@ -5,13 +5,14 @@
   "type": "module",
   "proxy": "http://localhost:6001",
 	"scripts": {
-		"build": "vite build && mv dist build",
-		"lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-		"preview": "vite preview",
-		"server": "json-server --watch db.json --port 6001",
-		"start": "vite",
-		"dev": "concurrently \"npm run server\" \"npm start\""
-	},
+    "build": "vite build && move /Y dist build",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "server": "json-server --watch db.json --port 6001",
+    "start": "vite",
+    "dev": "concurrently \"npm run server\" \"npm start\"",
+    "serve": "serve -s build"
+  },
   "dependencies": {
     "@nextui-org/card": "^2.0.28",
     "@nextui-org/react": "^2.3.6",

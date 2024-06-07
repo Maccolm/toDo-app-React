@@ -20,7 +20,6 @@ export default function Login () {
 
 	const checkUser = (users) => {
 		const user = users.find((user) => user.email === email && user.password === password) 
-		console.log(user);
 		if (user.email === email && user.password === password){
 			return user || null;
 		}
@@ -36,7 +35,6 @@ export default function Login () {
 		} 
 		try{
 			const response = await api.get("/users")
-			console.log(response.data);
 			const user = checkUser(response.data)
 
 			if (user) {
