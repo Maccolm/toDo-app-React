@@ -2,7 +2,7 @@ import { promises as fs } from 'fs'
 import path from 'path'
 
 export default async function handler(req, res) {
-	const dataPath = path.join(process.cwd(), 'db.json');
+	const dataPath = path.join(process.cwd(), 'data.json');
 	const data = JSON.parse(await fs.readFile(dataPath, 'utf8'));
 
 	if(req.method === 'GET') {

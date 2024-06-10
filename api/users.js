@@ -1,13 +1,11 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 
-export default async function handler(req, res) {
+const handler = async (req, res) => {
   const dataPath = path.join(process.cwd(), 'data.json');
-  const data = JSON.parse(await fs.readFile(dataPath, 'utf8'));
+  const data = await fs.readFile(dataPath, 'utf8');
+  const users = JSON.parse(data).users;
+  res.status(200).json(users);
+};
 
-  if (req.method === 'GET') {
-    res.status(200).json(data.users);
-  } else {
-    res.status(405).json({ message: 'Method not allowed' });
-  }
-}
+export default handler;
