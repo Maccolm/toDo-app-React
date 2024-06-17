@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 6001;
 
 // Дозвіл CORS для конкретного домену
 app.use(cors({
-  origin: 'https://to-do-9hypdq2z8-maccolms-projects.vercel.app', // Дозволений домен
+  origin: 'https://to-do-app-gold-iota.vercel.app', // Дозволений домен
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Дозволені методи
   allowedHeaders: ['Content-Type', 'Authorization'] // Дозволені заголовки
 }));

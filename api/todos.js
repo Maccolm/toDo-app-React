@@ -2,7 +2,7 @@ import { promises as fs } from 'fs'
 import path from 'path'
 
 export default async function handler(req, res) {
-	res.setHeader('Access-Control-Allow-Origin', 'https://to-do-be4b2neow-maccolms-projects.vercel.app');
+	res.setHeader('Access-Control-Allow-Origin', 'https://to-do-app-gold-iota.vercel.app/');
 	res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
 	res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 	
