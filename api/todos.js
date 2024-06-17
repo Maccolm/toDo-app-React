@@ -2,16 +2,48 @@ import { promises as fs } from 'fs'
 import path from 'path'
 
 export default async function handler(req, res) {
-	res.setHeader('Access-Control-Allow-Origin', 'https://to-do-app-gold-iota.vercel.app/');
-	res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-	res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-	
-	const dataPath = path.join(process.cwd(), 'data.json');
-	const data = JSON.parse(await fs.readFile(dataPath, 'utf8'));
+    res.setHeader('Access-Control-Allow-Origin', 'https://to-do-app-gold-iota.vercel.app/');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
-	if(req.method === 'GET') {
-		res.status(200).json(data.todos)
-	} else {
-		res.status(405).json({message: "Method not allowed"})
-	}
+    const dataPath = path.join(process.cwd(), 'data.json');
+
+    try {
+        const data = JSON.parse(await fs.readFile(dataPath, 'utf8'));
+
+        if (req.method === 'GET') {
+            res.status(200).json(data.todos);
+        } else if (req.method === 'POST') {
+            const newTodo = req.body;
+            newTodo.id = uuidv4(); // Генерація унікального ID
+            data.todos.push(newTodo);
+            await fs.writeFile(dataPath, JSON.stringify(data, null, 2));
+            res.status(201).json(newTodo);
+        } else if (req.method === 'PUT') {
+            const updatedTodo = req.body;
+            const index = data.todos.findIndex(todo => todo.id === updatedTodo.id);
+            if (index !== -1) {
+                data.todos[index] = updatedTodo;
+                await fs.writeFile(dataPath, JSON.stringify(data, null, 2));
+                res.status(200).json(updatedTodo);
+            } else {
+                res.status(404).json({ message: 'Todo not found' });
+            }
+        } else if (req.method === 'DELETE') {
+            const { id } = req.query;
+            const updatedTodos = data.todos.filter(todo => todo.id !== id);
+            if (updatedTodos.length !== data.todos.length) {
+                data.todos = updatedTodos;
+                await fs.writeFile(dataPath, JSON.stringify(data, null, 2));
+                res.status(200).json({ message: 'Todo deleted' });
+            } else {
+                res.status(404).json({ message: 'Todo not found' });
+            }
+        } else {
+            res.status(405).json({ message: "Method not allowed" });
+        }
+    } catch (error) {
+        console.error('Error handling request', error);
+        res.status(500).json({ message: 'Internal Server Error' });
+    }
 }
