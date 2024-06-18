@@ -1,21 +1,29 @@
-import { promises as fs } from 'fs'
-import path from 'path'
+import { promises as fs } from 'fs';
+import path from 'path';
+import { v4 as uuidv4 } from 'uuid';
 
 export default async function handler(req, res) {
-    res.setHeader('Access-Control-Allow-Origin', 'https://to-do-app-gold-iota.vercel.app/');
+    res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
     const dataPath = path.join(process.cwd(), 'data.json');
 
+    if (req.method === 'OPTIONS') {
+        res.status(200).end();
+        return;
+    }
+
     try {
         const data = JSON.parse(await fs.readFile(dataPath, 'utf8'));
 
         if (req.method === 'GET') {
-            res.status(200).json(data.todos);
+            const userId = req.query.userId;
+            const userTodos = data.todos.filter(todo => todo.userId === userId);
+            res.status(200).json(userTodos);
         } else if (req.method === 'POST') {
             const newTodo = req.body;
-            newTodo.id = uuidv4(); // Генерація унікального ID
+            newTodo.id = uuidv4();
             data.todos.push(newTodo);
             await fs.writeFile(dataPath, JSON.stringify(data, null, 2));
             res.status(201).json(newTodo);

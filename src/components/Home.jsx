@@ -80,7 +80,7 @@ const Home = () =>{
 		setTodo(todo.map((todo) => (todo.id === updatedTodo.id ? updatedTodo : todo)))
 		
 		try {
-			const response = await api.put(`/todos/${updatedTodo.id}`, updatedTodo)
+			const response = await api.put(`/todos?id=${updatedTodo.id}`, updatedTodo)
 			if (response.status !== 200) {
 				throw new Error("Failed to update todo")
 			}
