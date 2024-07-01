@@ -20,28 +20,20 @@ const Register = () => {
 	const { darkMode } = useTheme()
 	const {isOpen, onClose, onOpen} = useDisclosure()
 
-	const checkEmail = (users) => {
-		return users.find((user) => user.email === email) || null
-	}
-
 	const handleSubmit = async (e) => {
-		e.preventDefault()
-		try{
-			const res = await api.get("/users")
-			const user = checkEmail(res.data)
+    e.preventDefault();
+    try {
+      const newUser = { username, email, password };
+      const res = await api.post("/register", newUser);
+      setRegister(true);
+      onOpen();
+    } catch (error) {
+      console.log("error register", error);
+      setRegister(false);
+      onOpen();
+    }
+  };
 
-			if (user) {
-				setRegister(false)
-			} else {
-				const newUser = { username, email, password }
-				await api.post("/users", newUser)
-				setRegister(true)
-			}
-			onOpen()
-		} catch (error) {
-			console.log('error register', error);
-		}
-	}
 	useEffect(() => {
 		if (!isOpen && register !== null) {
 			if(register) navigate('/user')

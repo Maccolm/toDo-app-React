@@ -77,19 +77,19 @@ const Home = () =>{
 	}
 
 	const updateTodo = async (updatedTodo) => {
-		setTodo(todo.map((todo) => (todo.id === updatedTodo.id ? updatedTodo : todo)))
-		
-		try {
-			const response = await api.put(`/todos?id=${updatedTodo.id}&userId=${updatedTodo.userId}`, updatedTodo)
-			if (response.status !== 200) {
-				throw new Error("Failed to update todo")
-			}
-		} catch (error) {
-			console.error("Error updating todo", error);
-		}
+  setTodo(todo.map((todo) => (todo.id === updatedTodo.id ? updatedTodo : todo)));
 
-		onEditClose()
-	}	
+  try {
+    const response = await api.put(`/todos?id=${updatedTodo._id}&userId=${updatedTodo.userId}`, updatedTodo);
+    if (response.status !== 200) {
+      throw new Error("Failed to update todo");
+    }
+  } catch (error) {
+    console.error("Error updating todo", error);
+  }
+
+  onEditClose();
+}
 
 	const logOut = () => {
 		setTimeout(() =>{
